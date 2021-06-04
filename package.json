@@ -1,0 +1,40 @@
+{
+  "name": "simple-util",
+  "version": "0.0.0",
+  "description": "util",
+  "main": "util.js",
+  "repository": "https://github.com/casperdai/simple-util.git",
+  "scripts": {
+    "lint": "eslint . --ignore-path .gitignore",
+    "test": "jest"
+  },
+  "author": "Casper Dai",
+  "license": "MIT",
+  "dependencies": {
+    "spark-md5": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/eslint-parser": "^7.12.13",
+    "@babel/preset-env": "^7.12.11",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.19.0",
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix --ignore-path .gitignore",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testRegex": "/__tests__/[^/]*\\.js$"
+  }
+}
