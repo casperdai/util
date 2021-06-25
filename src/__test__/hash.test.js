@@ -1,4 +1,4 @@
-import * as hash from '../hash.js'
+import * as hash from '../hash'
 
 describe('hash', () => {
   window.requestIdleCallback = cb => {

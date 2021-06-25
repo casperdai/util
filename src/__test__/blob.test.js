@@ -1,4 +1,4 @@
-import * as blob from '../blob.js'
+import * as blob from '../blob'
 
 describe('blob', () => {
   const blobData = new Blob(['this is a test blob.'])
@@ -8,23 +8,23 @@ describe('blob', () => {
   })
 
   test('blobToString(blob)', async () => {
-    expect(await blob.blobToString(blobData)).toBe('this is a test blob.')
+    await expect(blob.blobToString(blobData)).resolves.toBe('this is a test blob.')
   })
 
   test('blobToHex(not blob)', async () => {
-    expect(await blob.blobToHex(null)).rejects.toThrow()
+    await expect(blob.blobToHex(null)).rejects.toThrow()
   })
 
   test('blobToHex(Blob(blob)', async () => {
-    expect(await blob.blobToHex(blobData)).toBe('74 68 69 73 20 69 73 20 61 20 74 65 73 74 20 62 6C 6F 62 2E')
+    await expect(blob.blobToHex(blobData)).resolves.toBe('74 68 69 73 20 69 73 20 61 20 74 65 73 74 20 62 6C 6F 62 2E')
   })
 
-  test('blobToArrayBuffer(not blob)', async () => {
-    expect(await blob.blobToArrayBuffer(null)).rejects.toThrow()
+  test('blobToArrayBuffer(not blob)', () => {
+    expect(blob.blobToArrayBuffer(null)).rejects.toThrow()
   })
 
   test('blobToArrayBuffer(blob)', async () => {
-    expect(await blob.blobToString(new Blob([await blob.blobToArrayBuffer(blobData)]))).toBe(await blob.blobToString(blobData))
+    await expect(blob.blobToString(new Blob([await blob.blobToArrayBuffer(blobData)]))).resolves.toBe(await blob.blobToString(blobData))
   })
 
   test('createChunks(not blob) to []', () => {

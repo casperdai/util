@@ -1,4 +1,4 @@
-import * as unique from '../unique.js'
+import * as unique from '../unique'
 
 describe('unique', () => {
   test('uuid format', () => {

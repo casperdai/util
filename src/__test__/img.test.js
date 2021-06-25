@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import * as img from '../img.js'
+import * as img from '../img'
 
 describe('img', () => {
   const pngData = fs.readFileSync(path.resolve(__dirname, './assets/test.png'))

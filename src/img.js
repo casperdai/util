@@ -1,5 +1,5 @@
-import { ext } from './path.js'
-import { blobToHex } from './blob.js'
+import { ext } from './path'
+import { blobToHex } from './blob'
 
 export async function isPng (file, ignoreExt = false) {
   try {

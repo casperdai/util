@@ -1,5 +1,5 @@
 import sparkMd5 from 'spark-md5'
-import { blobToArrayBuffer, createChunks } from './blob.js'
+import { blobToArrayBuffer, createChunks } from './blob'
 
 export function md5 (s) {
   return typeof s === 'string' ? sparkMd5.hash(s) : null

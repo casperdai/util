@@ -1,4 +1,4 @@
-import * as path from '../path.js'
+import * as path from '../path'
 
 describe('path', () => {
   test('ext(null) to \'\'', () => {
@@ -22,14 +22,10 @@ describe('path', () => {
   })
 
   test('ext(\'.png\') to \'\'', () => {
-    expect(path.ext('.png')).toBe('png')
+    expect(path.ext('.png')).not.toBe('png')
   })
 
   test('ext(\'a/b/c.png\') to \'png\'', () => {
-    expect(path.ext('a/b/c.png')).toBe('png')
-  })
-
-  test('ext(\'a/b/c.d.png\') to \'png\'', () => {
     expect(path.ext('a/b/c.png')).toBe('png')
   })
 })
